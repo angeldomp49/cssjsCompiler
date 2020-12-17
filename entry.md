@@ -1,11 +1,18 @@
-assets/js/jquery.min.js  assets/js/bootstrap.min.js  assets/js/popper.min.js  assets/js/owl.carousel.min.js  assets/js/jarallax.js  assets/js/jquery.magnific-popup.min.js  assets/js/appear.js  assets/js/isotope.pkgd.min.js  assets/js/masonry.pkgd.min.js  assets/js/imagesloaded.pkgd.min.js  assets/js/lightbox.js  assets/js/waypoints.min.js  assets/js/jquery.counterup.min.js  assets/js/tilt.jquery.min.js  assets/js/wow.min.js  assets/js/script.js  assets/js/gmap3.min.js  assets/js/validatejq.js assets/js/lazy.min.js
+* 
+* minify css files using postcss
+* also minify js files using terser
+* the output can be one or sereval files for css or js
+* also includes lazyLoad and antiShift projects, they can be used for performance improvement
+* 
 
+
+* instalation info: ( not mandatory is only for reply the project )
 
 npm init 
 npm install
-npm install cssnano postcss-cli terser
+npm install cssnano postcss-cli
 
-copy in postcss.config.js >>
+copy in postcss.config.js :
 
 module.exports = {
     plugins: [
