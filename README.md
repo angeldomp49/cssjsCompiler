@@ -9,7 +9,7 @@
 3. compress-images
 4. lazyLoad
 5. antiShift
-
+6. .htaccess file
 
 
 ====================
@@ -186,3 +186,56 @@ $ node imageCompressor/compress-images.js
 5. 6. add the respective class like:
 
     <div class="h-50"> <!--height: 5px;-->
+
+
+
+========================================
+6. # .htaccess file
+========================================
+
+_________________________________________________________________
+
+# this .htaccess file redirect the user to index.php if the requested resource does not exists
+# also rewrite and redirect to ssl site with https if it's not yet active 
+# the third part enables the cache expires headers by file type 
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+</IfModule>
+
+
+# BEGIN EXPIRES HEADER
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-shockwave-flash "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/html "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+</IfModule>
+
+# END EXPIRES HEADER
+
+_________________________________________________________________________________
