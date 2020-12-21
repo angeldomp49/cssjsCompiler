@@ -9,7 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compress-image": "0.0.1",
+    "compress-images": "^1.9.5",
     "cssnano": "^4.1.10",
+    "gifsicle": "^5.1.0",
+    "pngquant-bin": "^6.0.0",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0"
   }

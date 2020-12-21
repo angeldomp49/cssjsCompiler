@@ -1,18 +1,37 @@
- 
-# minify css files using postcss
-# also minify js files using terser
-# the output can be one or sereval files for css or js
-# also includes lazyLoad and antiShift projects, they can be used for performance improvement
-# 
-# instalation info: ( not mandatory is only for reply the project )
+=====================
+#### optimizator #### 
+=====================
+
+* this project use this technologies
+
+1. postcss
+2. terser
+3. compress-images
+4. lazyLoad
+5. antiShift
 
 
-npm init 
-npm install
-npm install cssnano postcss-cli
 
-# copy in postcss.config.js :
+====================
+1. # postcss
+====================
 
+
+
+* this project as all necessary for works but the next instructions are a guideline for install postcss.
+
+====================
+1. 1. installation:
+====================
+
+$ npm init 
+$ npm install
+$ npm install cssnano postcss-cli
+
+===================================
+1. 2. copy in postcss.config.js :
+===================================
+______________________________________
 module.exports = {
     plugins: [
         require('cssnano')({
@@ -20,15 +39,150 @@ module.exports = {
         }),
     ],
 };
+_______________________________________
 
-# to use:
+====================================
+1. 3.  use postcss:
+====================================
 
-postcss input.css > output.css
+$ postcss input.css > output.css
 
-# for several files use @import statement into input.css
+=====================================
+1. 4. for several files use @import statement into input.css
+=====================================
 
-npm install terser --global
 
-# to use:
+===================
+2. # terser
+===================
 
-terser input1.js input2.js ... > output.js
+
+=====================
+2. 1. installation
+=====================
+
+$ npm install terser --global
+
+===============================
+2. 2. for minify js files use:
+===============================
+
+$ terser input1.js input2.js ... > output.js
+
+
+
+=====================
+3. # compress-images
+=====================
+
+
+======================
+3. 1. installation
+======================
+
+$ npm install compress-images pngquant-bin gifsicle
+
+=================================
+3. 2. for compress-images.js
+=================================
+
+___________________________________________________________________________________
+let compressImages = require("compress-images"); 
+
+const input = "imageCompressor/src/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
+const outputDir = "imageCompressor/dist/";
+
+compressImages(input,outputDir,{
+    compress_force: false,
+    statistic: true,
+    autoupdate: true,
+
+},
+false,
+{jpg: {engine: 'mozjpeg', command: [ '-quality', '70' ]}},
+//{jpg: {engine: 'webp', command: false}},
+{png: {engine: 'pngquant', command: ['--quality=70-90','-o']}},
+{svg: {engine: 'svgo', command: '--multipass'}},
+{gif: {engine: 'gifsicle', command: ['--colors', '64', '--use-col=web']}},
+function (error, completed, statistic){
+    console.log(error);
+    console.log(completed);
+    console.log(statistic);
+});
+____________________________________________________________________________________
+
+=============================
+3. 3. run:
+=============================
+
+$ node imageCompressor/compress-images.js
+
+
+
+===============
+4. # lazyLoad
+===============
+
+
+
+=========================
+4. 1.    images
+=========================
+
+4. 1. 1.  link the lazy.min.js file
+4. 1. 2.  add the class lazy in each element who needs it
+
+    <img class="lazy">
+
+4. 1. 3.  for img tags add the data-src and data-srcset attributes ( can contain the same )
+4. 1. 4.  remove the src attribute value like:
+
+    <img class="lazy" data-src="image.jpg" data-srcset="image.jpg" src="">
+
+4. 1. 5.  automatically when the viewport show the image it fill the src and srcset attribute
+
+============================
+4. 2.   videos
+============================
+
+4. 2. 1.  turn the preload attribute to none, if the video is autoplay remember turn muted to true, the autoplay tag should not appears or be false.
+4. 2. 2.  add the lazy class.
+4. 2. 3.  automatically when the viewport show the video the script plays it. the disadvantage is clear, if the network connection is very slow the video takes long time in load.
+
+    <video class="lazy" muted preload="none" src="resource.mp4">
+
+============================
+4. 3.   backgrounds
+============================
+
+4. 3. 1. set attribute data-bg with the respective value
+4. 3. 2. set the class lazy
+4. 3. 3. remove the background attribute value like:
+
+    <div class="lazy" data-bg="url('assets/resource.jpg')" style="background: unset;" >
+
+4. 3. 4. when the viewport show this, the background takes the data-bg attribute
+
+
+
+=============================
+5. # antiShift
+=============================
+
+5. 1. link the antiShift.min.js
+5. 2. add the antiShift class in all container elements who need it like:
+
+    <div class="antiShift" >
+
+5. 3. add the default height in the style tag like:
+
+    <div style="height: 50px;"> 
+5. 4. when the window loads completely the height is redefined to auto
+
+    <div style="height: auto;">
+
+5. 5. if you can't add height directly in style element tag you should include the shifts.min.css
+
+5. 6. add the respective class like:
+
+    <div class="h-50"> <!--height: 5px;-->
