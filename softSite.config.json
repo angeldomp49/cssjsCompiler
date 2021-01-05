@@ -3,26 +3,14 @@
         "inputs": [
         ],
         "all": true,
-        "dir": "",
+        "dir": "src/css",
         "extras":[
-            "antiShift/css/antiShift.min.css"
+            "antiShift/css/shifts.min.css"
         ]
     },
     "js": {
         "inputs": [
-            "js/jquery.min.js",
-            "js/popper.min.js",
-            "js/bootstrap.min.js",
-            "js/fancybox.min.js",
-            "js/odometer.min.js",
-            "js/timeline.js",
-            "js/swiper.min.js",
-            "js/isotope.min.js",
-            "js/wow.min.js",
-            "js/imagesloaded.pkgd.min.js",
-            "js/scripts.js",
-            "lazyLoad/js/lazy.min.js",
-            "antiShift/js/antiShift.min.js"
+            "src/js/bundle.min.js"
         ],
         "all": false,
         "dir":"",
@@ -32,7 +20,7 @@
         ]
     },
     "imageCompressor": {
-        "dir": ""
+        "dir": "src/images"
     }
 }
 

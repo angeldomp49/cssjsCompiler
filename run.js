@@ -53,8 +53,9 @@ function combineJsFiles(){
 }
 
 function runImgCompressor(){
-  const input = options.imageCompressor + "/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
-  const outputDir = "dist/images";
+
+  const input = options.imageCompressor.dir + "/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
+  const outputDir = "dist/images/";
 
   compressImages(input,outputDir,{
       compress_force: false,
