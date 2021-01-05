@@ -28,11 +28,7 @@ function combineCssFiles(){
 
 function combineJsFiles(){
 
-  let jsinputs;
-
-  options.js.inputs.forEach(element => {
-    jsinputs = jsinputs+" "+element;
-  });
+  let jsinputs = "";
 
   if( !fs.existsSync("dist/js") ){
     fs.mkdirSync(path.join(__dirname, "dist/js"), { recursive: true });
@@ -43,12 +39,19 @@ function combineJsFiles(){
       options.js.dir + "/**/*.css",
     ];
     jsSource = jsSource.concat( options.js.extras );
+    //console.log( jsSource );
   }
   else{
     jsSource = options.js.inputs.concat( options.js.extras );
+    //console.log( jsSource );
   }
 
-  let command = "terser "+ jsSource + " -o dist/js/bundle.min.js";
+  jsSource.forEach(element => {
+    jsinputs = jsinputs+" "+element;
+  });
+
+  let command = "terser "+ jsinputs + " -o dist/js/bundle.min.js";
+  //console.log( command );
   exec( command );
 }
 
