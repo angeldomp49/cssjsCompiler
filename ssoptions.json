@@ -6,8 +6,19 @@
     },
     "js": {
         "inputs": [
-            "entryjs/a/dos.js",
-            "entryjs/uno.js"
-        ]
+            "js/jquery.min.js",
+            "js/popper.min.js",
+            "js/bootstrap.min.js",
+            "js/fancybox.min.js",
+            "js/odometer.min.js",
+            "js/timeline.js",
+            "js/swiper.min.js",
+            "js/isotope.min.js",
+            "js/wow.min.js",
+            "js/imagesloaded.pkgd.min.js",
+            "js/scripts.js"
+        ],
+        "all": false
     }
 }
+

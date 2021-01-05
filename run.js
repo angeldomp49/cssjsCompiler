@@ -5,7 +5,7 @@ const fs      = require("fs");
 const { exec }    = require("child_process");
 const options     = JSON.parse( fs.readFileSync( "ssoptions.json" ) );
 const path        = require("path");
-let inputs        = "";
+let jsinputs        = "";
 let command       = "";
 
 function combineCssFiles(){
@@ -16,14 +16,13 @@ function combineCssFiles(){
 };
 combineCssFiles();
 
-
 options.js.inputs.forEach(element => {
-  inputs = inputs+" "+element;
+  jsinputs = jsinputs+" "+element;
 });
 
 if( !fs.existsSync("dist/js") ){
   fs.mkdirSync(path.join(__dirname, "dist/js"), { recursive: true });
 }
 
-command = "terser "+ inputs+ " -o dist/js/bundle.js";
+command = "terser "+ (( options.js.all ) ? "entryjs/**/*.js" : jsinputs) + " -o dist/js/bundle.js";
 exec( command );
