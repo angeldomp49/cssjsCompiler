@@ -22,6 +22,8 @@ this project as all necessary for works but the next instructions are a guidelin
 ` npm init  `
 ` npm install `
 ` npm install cssnano postcss-cli `
+` npm install gulp `
+` npm install gulp-concat-css `
 
 ### copy in postcss.config.js : ###
 ______________________________________
