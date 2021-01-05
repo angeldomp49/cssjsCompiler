@@ -2,7 +2,11 @@
     "css": {
         "inputs": [
         ],
-        "all": true
+        "all": true,
+        "dir": "",
+        "extras":[
+            "antiShift/css/antiShift.min.css"
+        ]
     },
     "js": {
         "inputs": [
@@ -16,9 +20,19 @@
             "js/isotope.min.js",
             "js/wow.min.js",
             "js/imagesloaded.pkgd.min.js",
-            "js/scripts.js"
+            "js/scripts.js",
+            "lazyLoad/js/lazy.min.js",
+            "antiShift/js/antiShift.min.js"
         ],
-        "all": false
+        "all": false,
+        "dir":"",
+        "extras":[
+            "lazyLoad/js/lazy.min.js",
+            "antiShift/js/antiShift.min.js"
+        ]
+    },
+    "imageCompressor": {
+        "dir": ""
     }
 }
 
