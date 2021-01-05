@@ -115,9 +115,6 @@ $ node imageCompressor/compress-images.js
 =========================
 
 4. 1. 1.  link the lazy.min.js file
-4. 1. 2.  add the class lazy in each element who needs it
-
-    <img class="lazy">
 
 4. 1. 3.  for img tags add the data-src and data-srcset attributes ( can contain the same )
 4. 1. 4.  remove the src attribute value like:
@@ -144,7 +141,7 @@ $ node imageCompressor/compress-images.js
 4. 3. 2. set the class lazy
 4. 3. 3. remove the background attribute value like:
 
-    <div class="lazy" data-bg="url('assets/resource.jpg')" style="background: unset;" >
+    <div class="lazy" data-bg="linear-gradient(top,bottom,#ffffff) url('assets/resource.jpg')" data-img="url('img.png')" style="background: unset;" >
 
 4. 3. 4. when the viewport show this, the background takes the data-bg attribute
 
