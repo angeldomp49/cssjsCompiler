@@ -1,8 +1,7 @@
-=====================
-#### optimizator #### 
-=====================
 
-* this project use this technologies
+# softSite # 
+
+this project use this technologies
 
 1. postcss
 2. terser
@@ -12,25 +11,19 @@
 6. .htaccess file
 
 
-====================
-1. # postcss
-====================
+## postcss ##
 
 
 
-* this project as all necessary for works but the next instructions are a guideline for install postcss.
+this project as all necessary for works but the next instructions are a guideline for install postcss.
 
-====================
-1. 1. installation:
-====================
+### installation: ###
 
-$ npm init 
-$ npm install
-$ npm install cssnano postcss-cli
+` npm init  `
+` npm install `
+` npm install cssnano postcss-cli `
 
-===================================
-1. 2. copy in postcss.config.js :
-===================================
+### copy in postcss.config.js : ###
 ______________________________________
 module.exports = {
     plugins: [
@@ -41,25 +34,17 @@ module.exports = {
 };
 _______________________________________
 
-====================================
-1. 3.  use postcss:
-====================================
+### use postcss:  ###
 
-$ postcss input.css > output.css
+` postcss input.css > output.css `
 
-=====================================
-1. 4. for several files use @import statement into input.css
-=====================================
+for several files use @import statement into input.css
 
 
-===================
-2. # terser
-===================
+## terser  ##
 
 
-=====================
-2. 1. installation
-=====================
+### installation ###
 
 $ npm install terser --global
 
@@ -195,6 +180,7 @@ $ node imageCompressor/compress-images.js
 
 _________________________________________________________________
 
+
 # this .htaccess file redirect the user to index.php if the requested resource does not exists
 # also rewrite and redirect to ssl site with https if it's not yet active 
 # the third part enables the cache expires headers by file type 
@@ -237,3 +223,61 @@ _________________________________________________________________
 </IfModule>
 
 # END EXPIRES HEADER
+
+# COMPRESS FILES HEADER
+
+<IfModule mod_deflate.c>
+  ExpiresActive On
+  
+  # Add new content-types
+  AddType application/vnd.ms-fontobject .eot
+  AddType application/x-font-ttf .ttf
+  AddType application/x-font-opentype .otf
+  AddType application/x-font-woff .woff
+  AddType image/svg+xml .svg
+
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+
+</IfModule>
+
+# COMPRESS FILES HEADER
+
+# CROSS ORIGIN HEADER
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://starmediasoluciones.com"
+</IfModule>
+# END CROSS ORIGIN HEADER
+
+# CROSS ORIGIN FOR FONTS
+<FilesMatch ".(eot|ttf|otf|woff)">
+   Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# END CROSS ORIGIN FOR FONTS

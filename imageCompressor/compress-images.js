@@ -1,6 +1,6 @@
 let compressImages = require("compress-images"); 
 
-const input = "imageCompressor/src/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
+const input = "imageCompressor/src/*/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
 const outputDir = "imageCompressor/dist/";
 
 compressImages(input,outputDir,{
