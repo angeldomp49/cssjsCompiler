@@ -1,13 +1,13 @@
 { 
     "css": {
         "inputs": [
-            "entrycss/tres.css",
-            "entrycss/cuatro.css"
-        ]
+        ],
+        "all": true
     },
     "js": {
         "inputs": [
-            
+            "entryjs/a/dos.js",
+            "entryjs/uno.js"
         ]
     }
 }
