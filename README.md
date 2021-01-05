@@ -29,6 +29,7 @@ this project as all necessary for works but the next instructions are a guidelin
         gulp-concat 
         --global gulp-cli 
         child_process 
+        fs
 
 
 ### copy in postcss.config.js : ###

@@ -1,7 +1,13 @@
-{
-    "inputCss": [
-        "js/test.css",
-        "css/test2.css"
-    ],
-    "inputJs": []
+{ 
+    "css": {
+        "inputs": [
+            "entrycss/tres.css",
+            "entrycss/cuatro.css"
+        ]
+    },
+    "js": {
+        "inputs": [
+            
+        ]
+    }
 }
