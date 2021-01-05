@@ -24,5 +24,5 @@ if( !fs.existsSync("dist/js") ){
   fs.mkdirSync(path.join(__dirname, "dist/js"), { recursive: true });
 }
 
-command = "terser "+ (( options.js.all ) ? "entryjs/**/*.js" : jsinputs) + " -o dist/js/bundle.js";
+command = "terser "+ (( options.js.all ) ? "entryjs/**/*.js" : jsinputs) + " -o dist/js/bundle.min.js";
 exec( command );
