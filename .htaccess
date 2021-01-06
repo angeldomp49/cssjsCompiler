@@ -4,6 +4,9 @@
 # the third part enables the cache expires headers by file type 
 
 <IfModule mod_rewrite.c>
+
+    # if the requested url is not a file or directory redirect to index.php
+
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
@@ -11,8 +14,15 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.php [L]
 
+    # end redirection
+
+    # force run over https 
+
     RewriteCond %{HTTPS} !=on
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+    # end https 
+
 </IfModule>
 
 
@@ -89,7 +99,7 @@
 
 # CROSS ORIGIN HEADER
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "https://starmediasoluciones.com"
+    Header set Access-Control-Allow-Origin "https://example.com"
 </IfModule>
 # END CROSS ORIGIN HEADER
 

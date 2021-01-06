@@ -1,7 +1,7 @@
-window.addEventListener("load", function(){
-    let shiftSections = document.querySelectorAll("*.antiShift");
+window.addEventListener( "load", function(){
+    let shiftSections = document.querySelectorAll( "*[data-shift]" );
 
-    shiftSections.forEach(function ( section ){
+    shiftSections.forEach( function ( section ){
         section.style.height = "auto";
-    });
-});
+    } );
+} );

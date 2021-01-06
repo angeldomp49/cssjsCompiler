@@ -1,26 +1,26 @@
 { 
     "css": {
-        "inputs": [
-        ],
-        "all": true,
-        "dir": "src/css",
+        "all": false,
+        "dir": "",
         "extras":[
             "antiShift/css/shifts.min.css"
+        ],
+        "inputs": [
         ]
     },
     "js": {
-        "inputs": [
-            "src/js/bundle.min.js"
-        ],
         "all": false,
         "dir":"",
         "extras":[
             "lazyLoad/js/lazy.min.js",
             "antiShift/js/antiShift.min.js"
+        ],
+        "inputs": [
+            ""
         ]
     },
     "imageCompressor": {
-        "dir": "src/images"
+        "dir": ""
     }
 }
 
