@@ -1,8 +1,8 @@
 { 
     "css": {
         "enable": true,
-        "all": false,
-        "dir": "",
+        "all": true,
+        "dir": "test",
         "extras":[
             "antiShift/css/shifts.min.css"
         ],
@@ -10,7 +10,7 @@
         ]
     },
     "js": {
-        "enable":true,
+        "enable":false,
         "all": false,
         "dir":"",
         "extras":[
@@ -22,7 +22,7 @@
         ]
     },
     "imageCompressor": {
-        "enable": true,
+        "enable": false,
         "dir": ""
     }
 }
