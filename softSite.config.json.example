@@ -10,7 +10,7 @@
         ]
     },
     "js": {
-        "enable":true,
+        "enable": true,
         "all": false,
         "dir":"",
         "extras":[

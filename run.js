@@ -9,6 +9,9 @@ const options        = JSON.parse( fs.readFileSync( "softSite.config.json" ) );
 
 
 function combineCssFiles(){
+  if( !options.css.enable ){
+    return;
+  }
 
   if( options.css.all ){
     cssSource = [
@@ -27,6 +30,10 @@ function combineCssFiles(){
 };
 
 function combineJsFiles(){
+
+  if( !options.css.enable ){
+    return;
+  }
 
   let jsinputs = "";
 
@@ -56,6 +63,10 @@ function combineJsFiles(){
 }
 
 function runImgCompressor(){
+
+  if( !options.css.enable ){
+    return;
+  }
 
   const input = options.imageCompressor.dir + "/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}";
   const outputDir = "dist/images/";
