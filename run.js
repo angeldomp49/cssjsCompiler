@@ -48,8 +48,7 @@ function combineCssFiles(){
 };
 
 function combineJsFiles(){
-
-  if( !options.js.enable ){
+  if( ! options.js.enable ){
     return;
   }
 
@@ -64,11 +63,9 @@ function combineJsFiles(){
       options.js.dir + "/**/*.css",
     ];
     jsSource = jsSource.concat( options.js.extras );
-    //console.log( jsSource );
   }
   else{
     jsSource = options.js.inputs.concat( options.js.extras );
-    //console.log( jsSource );
   }
 
   jsSource.forEach(element => {
@@ -76,8 +73,11 @@ function combineJsFiles(){
   });
 
   let command = "terser "+ jsinputs + " -o dist/js/bundle.min.js";
-  //console.log( command );
-  exec( command );
+  exec( command )
+    .on( 'error', function(error){
+      console.log("error executing terser command: " + error);
+      process.exit(1);
+    } );
 }
 
 function runImgCompressor(){
