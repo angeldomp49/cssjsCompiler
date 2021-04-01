@@ -31,7 +31,7 @@ function combineCssFiles(){
 
 function combineJsFiles(){
 
-  if( !options.css.enable ){
+  if( !options.js.enable ){
     return;
   }
 
@@ -64,7 +64,7 @@ function combineJsFiles(){
 
 function runImgCompressor(){
 
-  if( !options.css.enable ){
+  if( !options.imageCompressor.enable ){
     return;
   }
 
