@@ -9,7 +9,7 @@ const options        = JSON.parse( fs.readFileSync( "softSite.config.json" ) );
 
 
 function combineCssFiles(){
-  if( !options.css.enable ){
+  if( ! options.css.enable ){
     return;
   }
 
@@ -24,9 +24,27 @@ function combineCssFiles(){
   }
 
   return gulp.src( cssSource )
-  .pipe(concat("bundle.min.css"))
-  .pipe(postcss())
-  .pipe(gulp.dest('./dist/css'));
+  .pipe(
+    concat("bundle.min.css")
+      .on('error', function( error ){
+        console.log('error in gulp-concat: ' + error);
+        process.exit(1);
+      })
+  )
+  .pipe(
+    postcss()
+      .on('error', function( error ){ 
+        console.log('error in postcss: ' + error); 
+        process.exit(1);
+      })
+  )
+  .pipe(
+    gulp.dest('./dist/css')
+      .on('error', function(error){
+        console.log('error in gulp-dest: ' + error); 
+        process.exit(1);
+      })
+  );
 };
 
 function combineJsFiles(){
@@ -93,7 +111,3 @@ function runImgCompressor(){
 combineCssFiles();
 combineJsFiles();
 runImgCompressor();
-
-
-
-
